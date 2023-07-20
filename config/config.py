@@ -28,7 +28,8 @@ class Config(metaclass=Singleton):
         self.browse_chunk_max_length = int(os.getenv("BROWSE_CHUNK_MAX_LENGTH", 8192))
 
         self.openai_api_key = os.getenv("OPENAI_API_KEY")
-        self.temperature = float(os.getenv("TEMPERATURE", "1"))
+        self.openai_api_base = os.getenv("OPENAI_API_BASE", "https://api.openai.com")
+        self.temperature = float(os.getenv("TEMPERATURE", "0.3"))
 
         self.user_agent = os.getenv(
             "USER_AGENT",

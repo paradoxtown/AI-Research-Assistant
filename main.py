@@ -14,7 +14,6 @@ class ResearchRequest(BaseModel):
     agent: str
 
 
-
 app = FastAPI()
 app.mount("/site", StaticFiles(directory="client"), name="site")
 app.mount("/static", StaticFiles(directory="client/static"), name="static")
@@ -58,4 +57,4 @@ async def websocket_endpoint(websocket: WebSocket):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=9779)

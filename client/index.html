@@ -2,124 +2,90 @@
 <html lang="en">
 
 <head>
-    <title>GPT Researcher</title>
+    <title>Free AI RA</title>
     <meta name="description" content="A research assistant powered by GPT-4">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./static/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/site/styles.css" />
-    <style>
-        .avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-        }
-
-        .agent-name {
-            text-align: center;
-        }
-
-        .agent-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
 
 <body>
-
-    <section class="landing">
-        <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-4xl font-extrabold mx-auto lg:text-7xl">
-                Say Goodbye to <br>
-                <span
-                    style="background-image:linear-gradient(to right, #9867F0, #ED4E50); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hours
-                    of Research</span>
-            </h1>
-            <p class="max-w-5xl mx-auto text-gray-600 mt-8" style="font-size:20px">
-                Say Hello to GPT Researcher, your AI mate for rapid insights and comprehensive research. GPT Researcher
-                takes care of everything from accurate source gathering to organization of research results - all in one
-                platform designed to make your research process a breeze.
-            </p>
-            <a href="#form" class="btn btn-primary">Get Started</a>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span class="in-bar-title">
+                AI Research Assistant
+                <a href="https://github.com/paradoxtown/ai_research_assistant">
+                    <i class="fab fa-github" style="font-size:22px;"></i>
+                </a>
+            </span>
+            <span class="in-bar-subtitle">Your personal free GPT researcher</span>
         </div>
-    </section>
+    </div>
 
-    <main class="container" id="form">
-        <form method="POST" class="mt-3" onsubmit="startResearch(); return false;">
-            <div class="form-group">
-                <label for="task" class="agent-question">What would you like me to research next?</label>
-                <input type="text" id="task" name="task" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="agent">Select your agent:</label>
-                <div class="row">
-                    <div class="col agent-item">
-                        <label for="defaultAgent"><img src="/static/defaultAgentAvatar.JPG" class="avatar" alt="Default Agent"></label>
-                        <div class="agent-name"><input type="radio" name="agent" id="defaultAgent"
-                                value="Default Agent">Default Agent</div>
-                    </div>
-                    <div class="col agent-item">
-                        <label for="businessAnalystAgent"><img src="/static/businessAnalystAgentAvatar.png"
-                                class="avatar" alt="Business Analyst Agent"></label>
-                        <div class="agent-name"><input type="radio" name="agent" id="businessAnalystAgent"
-                                value="Business Analyst Agent">Business Analyst Agent</div>
-                    </div>
-                    <div class="col agent-item">
-                        <label for="financeAgent"><img src="/static/financeAgentAvatar.png" class="avatar" alt="Finance Agent"></label>
-                        <div class="agent-name"><input type="radio" name="agent" id="financeAgent" value="Finance Agent"
-                                required>Finance Agent</div>
-                    </div>
-                    <div class="col agent-item">
-                        <label for="travelAgent"><img src="/static/travelAgentAvatar.png" class="avatar" alt="Travel Agent"></label>
-                        <div class="agent-name"><input type="radio" name="agent" id="travelAgent"
-                                value="Travel Agent">Travel Agent</div>
-                    </div>
-                    <div class="col agent-item">
-                        <label for="academicResearchAgent"><img src="/static/academicResearchAgentAvatar.png"
-                                class="avatar" alt="Academic Research Agent"></label>
-                        <div class="agent-name"><input type="radio" name="agent" id="academicResearchAgent"
-                                value="Academic Research Agent">Academic Research Agent</div>
-                    </div>
-                    <div class="col agent-item">
-                        <label for="computerSecurityAnalyst"><img src="/static/computerSecurityAnalystAvatar.png"
-                                class="avatar" alt="Computer Security Analyst Agent"></label>
-                        <div class="agent-name"><input type="radio" name="agent" id="computerSecurityAnalyst"
-                                value="Computer Security Analyst Agent">Computer Security Analyst Agent</div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="report_type" class="agent-question">What type of report would you like me to generate?</label>
-                <select name="report_type" class="form-control" required>
-                    <option value="research_report">Research Report</option>
-                    <option value="resource_report">Resource Report</option>
-                    <option value="outline_report">Outline Report</option>
-                </select>
-            </div>
-            <input type="submit" value="Research" class="btn btn-primary button-padding">
-        </form>
-
+    <main class="container">
         <div class="margin-div">
-            <h2>Agent Output</h2>
+            <h3 id="sub-title">Agent Output</h3>
             <div id="output"></div>
         </div>
+
         <div class="margin-div">
-            <h2>Research Report</h2>
-            <div id="reportContainer"></div>
-            <button onclick="copyToClipboard()" class="btn btn-secondary mt-3">Copy to clipboard</button>
-            <a id="downloadLink" href="#" class="btn btn-secondary mt-3" target="_blank">Download as PDF</a>
+            <h3 id="sub-title">Research Report
+                <a id="downloadLink" href="#" class="btn btn-secondary" target="_blank">
+                    <img src="static/download.png" alt="download as pdf" width="20px" height="20px">
+                </a>
+                <button onclick="copyToClipboard()" class="btn btn-secondary">
+                    <img src="static/copy.png" alt="copy content" width="16px" height="16px">
+                </button>
+            </h3>
+            <div id="reportContainer">
+            </div>
         </div>
     </main>
 
-    <footer>
-        <p>GPT Researcher &copy; 2023 | <a target="_blank" href="https://github.com/assafelovic/gpt-researcher">GitHub
-                Page</a></p>
-    </footer>
+    <div class="container fixed-bottom">
+        <form method="POST" class="mt-3" onsubmit="GPTResearcher.startResearch(); return false;">
+            <div class="choose">
+                <div class="choose-group">
+                    <select name="agent" class="form-control" required>
+                        <option disabled selected hidden>Select Agent</option>
+                        <option value="Default Agent">Default Agent</option>
+                        <option value="Business Analyst Agent">Business Analyst Agent</option>
+                        <option value="Finance Agent">Finance Agent</option>
+                        <option value="Travel Agent">Travel Agent</option>
+                        <option value="Academic Research Agent">Academic Research Agent</option>
+                        <option value="Computer Security Analyst Agent">Computer Security Analyst Agent</option>
+                    </select>
+                </div>
+                <div class="choose-group">
+                    <select name="report_type" class="form-control" required>
+                        <option disabled selected hidden>Select Report Type </option>
+                        <option value="research_report">Research Report</option>
+                        <option value="resource_report">Resource Report</option>
+                        <option value="outline_report">Outline Report</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" id="task" name="task" class="form-control"
+                    placeholder="What would you like me to research next? E.g., Should I invest in the semi-conductor industry in 2023?"
+                    required>
+                <button type="submit" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" fill="currentColor"
+                        viewBox="0 0 256 256" class="h-4 w-auto">
+                        <path
+                            d="M232,127.89a16,16,0,0,1-8.18,14L55.91,237.9A16.14,16.14,0,0,1,48,240a16,16,0,0,1-15.05-21.34L60.3,138.71A4,4,0,0,1,64.09,136H136a8,8,0,0,0,8-8.53,8.19,8.19,0,0,0-8.26-7.47H64.16a4,4,0,0,1-3.79-2.7l-27.44-80A16,16,0,0,1,55.85,18.07l168,95.89A16,16,0,0,1,232,127.89Z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
     <script src="/site/scripts.js"></script>
