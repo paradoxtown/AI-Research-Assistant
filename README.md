@@ -1,7 +1,7 @@
 # AI Research Assistant
 
-<div style="text-align: center;">
-    <img src="./client/static/screen_shot.png" width="80%">
+<div align="center">
+    <img align="center" src="./client/static/screen_shot.png" width="80%">
 </div>
 
 Inspired by [gpt-researcher](https://github.com/assafelovic/gpt-researcher). 
@@ -18,4 +18,9 @@ or you can set the api key and base in `.env` file.
 
 ## Installation
 
-Please refer to the [installation guide](https://github.com/assafelovic/gpt-researcher#quickstart)
+Please refer to the [installation guide](https://github.com/assafelovic/gpt-researcher#quickstart).
+
+## TODO
+
+- [x] Third-party API
+- [ ] TBD
