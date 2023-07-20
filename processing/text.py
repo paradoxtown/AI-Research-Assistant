@@ -126,6 +126,7 @@ def create_message(chunk: str, question: str) -> Dict[str, str]:
         "Include all factual information, numbers, stats etc if available.",
     }
 
+
 def write_to_file(filename: str, text: str) -> None:
     """Write text to a file
 
@@ -136,6 +137,7 @@ def write_to_file(filename: str, text: str) -> None:
     with open(filename, "w") as file:
         file.write(text)
 
+
 async def write_md_to_pdf(task: str, directory_name: str, text: str) -> None:
     file_path = f"./outputs/{directory_name}/{task}"
     write_to_file(f"{file_path}.md", text)
@@ -145,6 +147,7 @@ async def write_md_to_pdf(task: str, directory_name: str, text: str) -> None:
     encoded_file_path = urllib.parse.quote(f"{file_path}.pdf")
 
     return encoded_file_path
+
 
 def read_txt_files(directory):
     all_text = ''

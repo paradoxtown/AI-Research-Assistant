@@ -9,9 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/site/styles.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="/site/styles.css" />
 </head>
 
 <body>
@@ -52,7 +53,7 @@
             <div class="choose">
                 <div class="choose-group">
                     <select name="agent" class="form-control" required>
-                        <option disabled selected hidden>Select Agent</option>
+                        <option value="" disabled selected hidden>Select Agent</option>
                         <option value="Default Agent">Default Agent</option>
                         <option value="Business Analyst Agent">Business Analyst Agent</option>
                         <option value="Finance Agent">Finance Agent</option>
@@ -74,7 +75,7 @@
                 <input type="text" id="task" name="task" class="form-control"
                     placeholder="What would you like me to research next? E.g., Should I invest in the semi-conductor industry in 2023?"
                     required>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" id="submit-form">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" fill="currentColor"
                         viewBox="0 0 256 256" class="h-4 w-auto">
                         <path

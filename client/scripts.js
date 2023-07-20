@@ -73,7 +73,8 @@ const GPTResearcher = (() => {
     textarea.value = document.getElementById('reportContainer').innerText;
     const selector = document.querySelector('#temp_element');
     selector.select();
-    document.execCommand('copy');
+    // document.execCommand('copy');
+    navigator.clipboard.writeText(textarea.value);
     document.body.removeChild(textarea);
   };
 

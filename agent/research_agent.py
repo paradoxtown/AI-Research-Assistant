@@ -121,6 +121,7 @@ class ResearchAgent:
         responses = await self.async_search(query)
 
         result = "\n".join(responses)
+        query = hash(query)
         os.makedirs(os.path.dirname(f"./outputs/{self.directory_name}/research-{query}.txt"), exist_ok=True)
         write_to_file(f"./outputs/{self.directory_name}/research-{query}.txt", result)
         return result

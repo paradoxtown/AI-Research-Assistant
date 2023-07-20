@@ -23,4 +23,7 @@ Please refer to the [installation guide](https://github.com/assafelovic/gpt-rese
 ## TODO
 
 - [x] Third-party API
-- [ ] TBD
+- [ ] Literature review
+- [x] Prettify report
+- [x] Warning when agent and type are not selected
+- [ ] Add medical agent and social agent
