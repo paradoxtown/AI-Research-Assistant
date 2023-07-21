@@ -32,7 +32,7 @@ manager = WebSocketManager()
 
 @app.get("/")
 async def read_root(request: Request):
-    return templates.TemplateResponse('index_test.html', {"request": request, "report": None})
+    return templates.TemplateResponse('index.html', {"request": request, "report": None})
 
 @app.get("/favicon.ico")
 async def favicon():

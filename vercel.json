@@ -12,8 +12,11 @@
         {
             "src": "client/**",
             "use": "@vercel/static"
+        },
+        {
+            "src": "client/index.html",
+            "use": "@vercel/static"
         }
-
     ],
     "routes": [
         {
