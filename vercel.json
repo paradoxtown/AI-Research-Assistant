@@ -5,13 +5,13 @@
             "use": "@vercel/python"
         },
         {
-            "src": "client/static/**",
+            "src": "client/**",
             "use": "@vercel/static"
         }
     ],
     "routes": [
         {
-            "src": "/",
+            "src": "/(.*)",
             "dest": "main.py"
         }
     ]
