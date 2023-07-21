@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import json
 import os
@@ -33,6 +34,9 @@ manager = WebSocketManager()
 async def read_root(request: Request):
     return templates.TemplateResponse('index.html', {"request": request, "report": None})
 
+@app.get("/favicon.ico")
+async def favicon():
+    return FileResponse("client/static/favicon.ico")
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
