@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&family=EB+Garamond&family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&family=EB+Garamond&family=Fira+Code:wght@400;600:wght@400;600&display=swap');
 
 @keyframes gradientBG {
     0% {
@@ -192,7 +192,7 @@ select:focus {
     height: auto;
     overflow: auto;
     transition: all .3s ease-in-out;
-    padding: 10px;
+    padding: 20px;
     border-radius: 12px;
     margin-top: 15px;
 }

@@ -27,3 +27,4 @@ Please refer to the [installation guide](https://github.com/assafelovic/gpt-rese
 - [x] Prettify report
 - [x] Warning when agent and type are not selected
 - [ ] Add medical agent and social agent
+- [ ] Add option for users to customize the number of words and temperature

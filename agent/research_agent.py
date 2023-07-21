@@ -74,7 +74,7 @@ class ResearchAgent:
             "content": action,
         }]
         answer = create_chat_completion(
-            model=CFG.fast_llm_model,
+            model=CFG.smart_llm_model,
             messages=messages,
             stream=stream,
             websocket=websocket,
