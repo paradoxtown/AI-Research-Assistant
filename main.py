@@ -61,4 +61,7 @@ async def websocket_endpoint(websocket: WebSocket):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=9779)
+    if os.environ.get("VERCEL_URL"):
+        uvicorn.run(app, host="0.0.0.0", port=os.environ.get("PORT")) 
+    else:
+        uvicorn.run(app, host="127.0.0.1", port=8000)
