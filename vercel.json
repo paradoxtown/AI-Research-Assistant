@@ -18,6 +18,6 @@
     "env": {
         "OPENAI_API_KEY": "Mo3VHbj95xsLES3qnmPahJqD_TD5Tnsr6Pwq9ON_2PU",
         "OPENAI_API_BASE": "https://chimeragpt.adventblocks.cc/v1",
-        "PORT": 8000
+        "PORT": "8000"
     }
 }
