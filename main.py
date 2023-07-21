@@ -34,10 +34,6 @@ manager = WebSocketManager()
 async def read_root(request: Request):
     return templates.TemplateResponse('index.html', {"request": request, "report": None})
 
-@app.get("/favicon.ico")
-async def favicon():
-    return FileResponse("client/static/favicon.ico")
-
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await manager.connect(websocket)
@@ -56,3 +52,8 @@ async def websocket_endpoint(websocket: WebSocket):
 
     except WebSocketDisconnect:
         await manager.disconnect(websocket)
+
+if __name__ == "__main__":
+    import uvicorn
+    print("Starting server...")
+    uvicorn.run(app, host="0.0.0.0", port=8000)

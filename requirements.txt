@@ -1,5 +1,6 @@
 beautifulsoup4==4.12.2
 colorama==0.4.6
+asyncio==3.4.3
 duckduckgo_search==3.8.3
 md2pdf==1.0.1
 openai~=0.27.8
