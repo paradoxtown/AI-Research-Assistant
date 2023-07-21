@@ -1,9 +1,19 @@
 {
+    "devCommand": "uvicorn main:app --host 0.0.0.0 --port 8000",
     "builds": [
         {
             "src": "main.py",
-            "use": "@vercel/python"
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.11"
+            }
+        },
+        {
+            "src": "client/**",
+            "use": "@vercel/static"
         }
+
     ],
     "routes": [
         {
