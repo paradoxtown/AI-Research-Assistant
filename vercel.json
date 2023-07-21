@@ -1,0 +1,23 @@
+{
+    "builds": [
+        {
+            "src": "main.py",
+            "use": "@vercel/python",
+            "config": {
+                "runtime": "python3.9",
+                "maxLambdaSize": "1024mb"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "main.py"
+        }
+    ],
+    "env": {
+        "OPENAI_API_KEY": "Mo3VHbj95xsLES3qnmPahJqD_TD5Tnsr6Pwq9ON_2PU",
+        "OPENAI_API_BASE": "https://chimeragpt.adventblocks.cc/v1",
+        "PORT": 8000
+    }
+}
