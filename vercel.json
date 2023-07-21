@@ -1,4 +1,6 @@
 {
+    "version": 2,
+    "public": false,
     "builds": [
         {
             "src": "main.py",
