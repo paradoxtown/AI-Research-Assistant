@@ -7,6 +7,10 @@
                 "runtime": "python3.9",
                 "maxLambdaSize": "1024mb"
             }
+        },
+        {
+            "src": "client/static/**",
+            "use": "@vercel/static"
         }
     ],
     "routes": [
