@@ -6,4 +6,5 @@ env/
 outputs/
 #Ignore pycache
 **/__pycache__/
-.vercel
+
+test*.py

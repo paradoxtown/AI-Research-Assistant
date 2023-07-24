@@ -23,13 +23,13 @@ class Config(metaclass=Singleton):
         self.selenium_web_browser = os.getenv("USE_WEB_BROWSER", "chrome")
         self.fast_llm_model = os.getenv("FAST_LLM_MODEL", "gpt-3.5-turbo-16k")
         self.smart_llm_model = os.getenv("SMART_LLM_MODEL", "gpt-4")
-        self.fast_token_limit = int(os.getenv("FAST_TOKEN_LIMIT", 4000))
+        self.fast_token_limit = int(os.getenv("FAST_TOKEN_LIMIT", 8000))
         self.smart_token_limit = int(os.getenv("SMART_TOKEN_LIMIT", 8000))
         self.browse_chunk_max_length = int(os.getenv("BROWSE_CHUNK_MAX_LENGTH", 8192))
 
         self.openai_api_key = os.getenv("OPENAI_API_KEY")
         self.openai_api_base = os.getenv("OPENAI_API_BASE", "https://api.openai.com")
-        self.temperature = float(os.getenv("TEMPERATURE", "0.3"))
+        self.temperature = float(os.getenv("TEMPERATURE", "1"))
 
         self.user_agent = os.getenv(
             "USER_AGENT",
