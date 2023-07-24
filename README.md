@@ -40,7 +40,7 @@ or you can set the api key and base in `.env` file.
 4. Run the project
 
     ```shell
-    $ python aira.py
+    $ python app.py
     ```
 
 ## TODO

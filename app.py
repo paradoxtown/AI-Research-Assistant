@@ -4,15 +4,9 @@ from config import check_openai_api_key
 from agent.research_agent import ResearchAgent
 from style import css, top_bar, research_report_html
 
-# theme = gr.themes.Soft(
-#     chue=gr.themes.Color(c100="#e0e7ff", c200="#c7d2fe", c300="#a5b4fc", c400="#818cf8", c50="#eef2ff", c500="#6366f1", c600="#61398f", c700="#4338ca", c800="#3730a3", c900="#312e81", c950="#61398f"),
-#     font_mono=[gr.themes.GoogleFont('Fira Code'), 'ui-monospace', 'Consolas', 'monospace'],
-# ).set(
-#     embed_radius='*radius_md'
-# )
-
 theme = gr.themes.Soft(
     primary_hue=gr.themes.Color(c100="#e0e7ff", c200="#c7d2fe", c300="#a5b4fc", c400="#818cf8", c50="#eef2ff", c500="#6366f1", c600="#5e5aaa", c700="#4338ca", c800="#3730a3", c900="#312e81", c950="#2b2c5e"),
+    font_mono=[gr.themes.GoogleFont('Fira Code'), 'ui-monospace', 'Consolas', 'monospace'],
 )
 
 check_openai_api_key()

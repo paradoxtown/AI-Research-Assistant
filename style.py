@@ -1,6 +1,6 @@
 css = """
     .top-bar {
-        padding: 10px;
+        padding-bottom: 10px;
         background-color: transparent;
         border-bottom: #dfe4ea 1px solid;
     }
@@ -11,7 +11,7 @@ css = """
         background-clip: text;
         -webkit-text-fill-color: transparent;
         font-family: Gelion, "Open Sans", Helvetica, "Helvetica Neue", Arial;
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: bold;
         text-align: left;
         display: block;
@@ -20,7 +20,7 @@ css = """
     .top-bar .in-bar-subtitle {
         font-family: 'Crimson Pro';
         color: #878787;
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         margin-top: -5px;
         display: block;
     }
