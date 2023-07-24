@@ -1,10 +1,6 @@
 <svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
         <style>
             .top-bar {
                 padding-bottom: 5px;
@@ -25,9 +21,10 @@
             .top-bar .in-bar-subtitle {
                 font-family: 'Crimson Pro';
                 color: #878787;
-                font-size: 1.4rem;
+                font-size: 1rem;
                 margin-top: -5px;
                 display: block;
+                text-align: left;
             }
         </style>
 
