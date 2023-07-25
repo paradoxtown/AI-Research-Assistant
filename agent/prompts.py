@@ -114,3 +114,11 @@ def get_report_by_type(report_type):
         'Outline Report': generate_outline_report_prompt
     }
     return report_type_mapping[report_type]
+
+def generate_english_polishing_prompt(content):
+    """ Generates the english polishing prompt for the given content.
+    Inspired by project gpt_academic
+    Args: question (str): 
+    Returns: str: The english polishing prompt for the given content
+    """
+    return f'Below is a paragraph from an academic paper. Polish the writing to meet the academic style and improve the spelling, grammar, clarity, concision, and overall readability.  When necessary, rewrite the whole sentence. Furthermore, list all modifications and explain the reasons for doing so in the markdown table. \n {content}'

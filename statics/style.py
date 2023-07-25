@@ -51,3 +51,11 @@ top_bar = """
 research_report_html = """
     <span data-testid="block-info" class="svelte-1gfkn6j custom_label")># Research Report</span>
 """
+
+english_polishing_html = """
+    <span data-testid="block-info" class="svelte-1gfkn6j custom_label")># Polished Result</span>
+"""
+
+history_result_html = """
+    <span data-testid="block-info" class="svelte-1gfkn6j custom_label")># History Result</span>
+"""

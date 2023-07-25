@@ -2,7 +2,8 @@ import gradio as gr
 
 from config import check_openai_api_key
 from agent.research_agent import ResearchAgent
-from statics.style import css, top_bar, research_report_html
+from agent.toolkits import english_polishing
+from statics.style import *
 
 theme = gr.themes.Soft(
     primary_hue=gr.themes.Color(c100="#e0e7ff", c200="#c7d2fe", c300="#a5b4fc", c400="#818cf8", c50="#eef2ff", c500="#6366f1", c600="#5e5aaa", c700="#4338ca", c800="#3730a3", c900="#312e81", c950="#2b2c5e"),
@@ -20,10 +21,6 @@ async def search(task, agent):
 
 def run_agent(report_type):
     yield from assistant.write_report(report_type)
-    
-def test_run_agent(report_type):
-    return "# Heading\n\nThis is a *test* report"
-
 
 with gr.Blocks(theme=theme, 
                title="AI Research Assistant",
@@ -64,8 +61,27 @@ with gr.Blocks(theme=theme,
             submit_btn = gr.Button("Generate Report")
             submit_btn.click(run_agent, inputs=[report_type], outputs=research_report)
             gr.Examples(["Should I invest semi-conductor industry in 2023?"], inputs=input_box)
-            
+    
+    with gr.Tab("English Polishing"):
+        gr.HTML(english_polishing_html)
+        polished_result = gr.Markdown("&nbsp;&nbsp;**Polished result will appear here...**")
+        sentences = gr.Textbox(label="# What would you like to polish?", placeholder="Enter your sentence here")
+        
+        with gr.Row():
+            polish_btn = gr.Button("Polish")
+            save_btn = gr.Button("Save")
+        
+        polish_btn.click(english_polishing, inputs=[sentences], outputs=polished_result)
+        
+        def save_result(history, origin, result):
+            history += f"\n**Origin** : {origin}\n\n**Polished Result** : {result}"
+            return history
+        
+        gr.HTML(history_result_html)
+        history_result = gr.Markdown("&nbsp;&nbsp;**History result will appear here...**")
+        save_btn.click(save_result, inputs=[history_result, sentences, polished_result], outputs=history_result)
+
     with gr.Tab("Literature Review"):
         pass
 
-demo.queue().launch(width=400)
+demo.queue().launch()
