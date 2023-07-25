@@ -1,7 +1,9 @@
 <div style="width: 100%;">
     <img src="./statics/title.svg" style="width: 100%;">
-    <a>English</a> -
-    <a href="./statics//README_zh.md">中文</a>
+    <div align="right">
+        <a href="./README.md">English</a> |
+        <a href="./statics/README_zh.md">中文</a>
+    </div>
 </div>
 
 Inspired by [gpt-researcher](https://github.com/assafelovic/gpt-researcher). This project offers an alternative approach to generating research reports by utilizing a third-party API instead of the official one. For access to this third-party API, please refer to [chimeragpt](https://chimeragpt.adventblocks.cc/). Once you obtain the API key, you can utilize it to access the chimeragpt API. Therefore, before running the project, kindly ensure that you set the environment variables `OPENAI_API_KEY` and `OPENAI_API_BASE`.
