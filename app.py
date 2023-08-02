@@ -12,14 +12,8 @@ theme = gr.themes.Soft(
 
 check_openai_api_key()
 
-assistant = None
-async def search(task, agent):
-    global assistant
+def run_agent(task, agent, report_type):
     assistant = ResearchAgent(task, agent)
-    research_summary = await assistant.search_online()
-    return research_summary
-
-def run_agent(report_type):
     yield from assistant.write_report(report_type)
 
 with gr.Blocks(theme=theme, 
@@ -29,11 +23,8 @@ with gr.Blocks(theme=theme,
     with gr.Tab(label="Report"):
         with gr.Column():
             gr.HTML(research_report_html)
-            research_report = gr.Markdown("&nbsp;&nbsp;**Research report will appear here...**")
-            agent_output = gr.Textbox(label="# Agent Output", 
-                                      lines=10, 
-                                      placeholder="Agent output will appear here", 
-                                      interactive=False)
+            research_report = gr.Markdown(value="&nbsp;&nbsp;**Research report will appear here...**",
+                                          elem_classes="research_report")
             with gr.Row():
                 agent_type = gr.Dropdown(label="# Agent Type", 
                                          value="Default Agent",
@@ -56,11 +47,14 @@ with gr.Blocks(theme=theme,
                                                  "Resource Report",
                                                  "Outline Report"])
             input_box = gr.Textbox(label="# What would you like to research next?", placeholder="Enter your question here")
-            search_btn = gr.Button("Search Online")
-            search_btn.click(search, inputs=[input_box, agent_type], outputs=agent_output)
             submit_btn = gr.Button("Generate Report")
-            submit_btn.click(run_agent, inputs=[report_type], outputs=research_report)
-            gr.Examples(["Should I invest semi-conductor industry in 2023?"], inputs=input_box)
+            submit_btn.click(run_agent, inputs=[input_box, agent_type, report_type], 
+                                        outputs=research_report)
+            gr.Examples(["Should I invest in the Large Language Model industry in 2023?", 
+                         "Is it advisable to make investments in the electric car industry during the year 2023?",
+                         "What constitutes the optimal approach for investing in the Bitcoin industry during the year 2023?",
+                         "What are the most recent advancements in the domain of superconductors as of 2023?"], 
+                         inputs=input_box)
     
     with gr.Tab("English Polishing"):
         gr.HTML(english_polishing_html)

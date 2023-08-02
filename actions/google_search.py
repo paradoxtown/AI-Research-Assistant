@@ -55,7 +55,7 @@ if __name__ == '__main__':
     txt = "What is LSTM?"
     proxies = None
     urls = get_urls(txt, proxies)
-    max_search_result = 5
+    max_search_result = 10
 
     for url in urls[:max_search_result]:
         print(url)

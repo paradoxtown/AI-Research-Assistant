@@ -24,6 +24,14 @@ css = """
         margin-top: -5px;
         display: block;
     }
+    
+    .research_report {
+        padding: 10px;
+        min-height: 100px;
+        border: #878787 2px solid;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
 """
 
 top_bar = """
@@ -38,8 +46,8 @@ top_bar = """
             <div class="top-bar-left">
                 <span class="in-bar-title">
                     AI Research Assistant
-                    <a href="https://github.com/paradoxtown/ai_research_assistant">
-                        <i class="fab fa-github" style="font-size:22px;"></i>
+                    <a href="https://github.com/paradoxtown/AI-Research-Assistant">
+                        <i class="fab fa-github" style="font-size:23px;"></i>
                     </a>
                 </span>
                 <span class="in-bar-subtitle">Your personal free GPT researcher</span>

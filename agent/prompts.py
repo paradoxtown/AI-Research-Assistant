@@ -44,7 +44,7 @@ def generate_search_queries_prompt(question):
     Returns: str: The search queries prompt for the given question
     """
 
-    return f'Write 5 google search queries to search online that form an objective opinion from the following: "{question}"'\
+    return f'Write 5 google search queries to search online that form an objective opinion from the following: "{question}"\n'\
            f'You must respond with a list of strings in the following format: ["query 1", "query 2", "query 3", "query 4", "query 5"]'
 
 
@@ -122,3 +122,11 @@ def generate_english_polishing_prompt(content):
     Returns: str: The english polishing prompt for the given content
     """
     return f'Below is a paragraph from an academic paper. Polish the writing to meet the academic style and improve the spelling, grammar, clarity, concision, and overall readability.  When necessary, rewrite the whole sentence. Furthermore, list all modifications and explain the reasons for doing so in the markdown table. \n {content}'
+
+def generate_summarize_prompt(content):
+    """ Generates the summarize prompt for the given content.
+    Inspired by project gpt_academic
+    Args: question (str): 
+    Returns: str: The summarize prompt for the given content
+    """
+    return f'The following information is crawled from the Internet and will be used in writing the research report. Please clear the junk information and summarize the useful information in depth. Include all factual information, numbers, stats etc if available. \n {content}'

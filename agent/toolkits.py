@@ -11,5 +11,5 @@ def english_polishing(content):
     }]
     
     yield from llm_utils.llm_stream_response(
-        model=CFG.smart_llm_model,
+        model=CFG.fast_llm_model,
         messages=messages)
