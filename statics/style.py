@@ -27,6 +27,7 @@ css = """
     
     .main {
         max-width: 800px;
+        min-width: min(100%, 800px);
         align-self: center;
     }
     
