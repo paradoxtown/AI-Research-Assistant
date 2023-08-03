@@ -24,10 +24,10 @@ with gr.Blocks(theme=gr.themes.Base(),
                title="AI Research Assistant",
                css=css) as demo:
     gr.HTML(top_bar)
-    with gr.Tab(label="Report"):
+    with gr.Tab(label="🔦Report"):
         with gr.Column():
             gr.HTML(research_report_html)
-            research_report = gr.Markdown(value="&nbsp;&nbsp;**Research report will appear here...**",
+            research_report = gr.Markdown(value="&nbsp;&nbsp;**Report will appear here...**",
                                           elem_classes="output")
             with gr.Row():
                 agent_type = gr.Dropdown(label="# Agent Type", 
@@ -76,7 +76,7 @@ with gr.Blocks(theme=gr.themes.Base(),
                       .then(store_research, inputs=[research_report], outputs=research_history)
 
     
-    with gr.Tab("English Polishing"):
+    with gr.Tab("✒️English Polishing"):
         gr.HTML(english_polishing_html)
         polished_result = gr.Markdown("&nbsp;&nbsp;**Polished result will appear here...**", elem_classes="output")
         sentences = gr.Textbox(label="# What would you like to polish?", placeholder="Enter your sentence here")
@@ -95,7 +95,7 @@ with gr.Blocks(theme=gr.themes.Base(),
         history_result = gr.Markdown("&nbsp;&nbsp;**History result will appear here...**")
         save_btn.click(save_result, inputs=[history_result, sentences, polished_result], outputs=history_result)
 
-    with gr.Tab("Literature Review"):
+    with gr.Tab("📑Literature Review"):
         gr.HTML(literature_review_html)
 
 demo.queue().launch()

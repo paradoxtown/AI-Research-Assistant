@@ -2,7 +2,7 @@ css = """
     .top-bar {
         padding-bottom: 10px;
         background-color: transparent;
-        border-bottom: #dfe4ea 1px solid;
+        border-bottom: #E9E4ED 1px solid;
     }
     
     .top-bar .in-bar-title {
@@ -40,9 +40,9 @@ css = """
     }
     
     #history {
-        padding: 10px;
-        border: 1.5px dashed #9A73B5;
-        border-radius: 10px;
+        padding: 10px !important;
+        border: 1.5px dashed #9A73B5 !important;
+        border-radius: 10px !important;
     }
     
     #primary-btn {
@@ -74,7 +74,7 @@ top_bar = """
                 <span class="in-bar-title">
                     AI Research Assistant
                     <a href="https://github.com/paradoxtown/AI-Research-Assistant">
-                        <i class="fab fa-github" style="font-size:23px;"></i>
+                        <i class="fab fa-github" style="font-size:25px;"></i>
                     </a>
                 </span>
                 <span class="in-bar-subtitle">Your personal free GPT researcher</span>
@@ -84,7 +84,7 @@ top_bar = """
 """
 
 research_report_html = """
-    <span data-testid="block-info" class="svelte-1gfkn6j custom_label")># Research Report</span>
+    <span data-testid="block-info" class="svelte-1gfkn6j custom_label")># Report</span>
 """
 
 english_polishing_html = """
