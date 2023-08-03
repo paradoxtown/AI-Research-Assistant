@@ -9,3 +9,4 @@ outputs/
 
 test*.py
 ./test/
+./flagged/

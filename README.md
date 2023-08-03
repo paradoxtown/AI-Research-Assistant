@@ -12,7 +12,16 @@ sdk_version: 3.38.0
     </div>
 </div>
 
-Inspired by [gpt-researcher](https://github.com/assafelovic/gpt-researcher). This project offers an alternative approach to generating research reports by utilizing a third-party API instead of the official one. For access to this third-party API, please refer to [chimeragpt](https://chimeragpt.adventblocks.cc/) or [GPT-API-free](https://github.com/chatanywhere/GPT_API_free). Before running the project, kindly ensure that you set the environment variables `OPENAI_API_KEY` and `OPENAI_API_BASE`.
+Inspired by [gpt-researcher](https://github.com/assafelovic/gpt-researcher). This project endeavors to develop an AI research assistant capable of **generating research reports** effortlessly for researchers. For instance, researchers can request the AI research assistant to compose a report on *the latest advancements in the field of superconductors as of 2023*, which is currently a trending topic. The AI research assistant will subsequently compile a report based on the relevant information obtained from the internet. Now, AIRA also offers support for **academic English polishing**.
+
+<!-- make a table -->
+| Image1 | Image2 |
+| :----: | :----: |
+| <img src="./statics/example1-1.png" style="width: 80%"> | <img src="./statics/example1-2.png" style="width: 80%"> |
+
+The currently supported agents encompass a wide range of fields, including *finance, business analysis, clinical medicine, basic medicine, travel, academic research and sociology*.
+
+In addition to official api, this project offers an alternative approach to generating research reports by utilizing a third-party API. For access to this third-party API, please refer to [chimeragpt](https://chimeragpt.adventblocks.cc/) or [GPT-API-free](https://github.com/chatanywhere/GPT_API_free). Before running the project, kindly ensure that you set the environment variables `OPENAI_API_KEY` and `OPENAI_API_BASE`.
 
 ```shell
 $ export OPENAI_API_KEY = your_api_key
@@ -59,3 +68,7 @@ or you can set the api key and base in `.env` file.
 - [ ] Prettify report
 - [x] Add medical agent and social agent
 - [ ] Add option for users to customize the number of words and temperature
+
+---
+
+<div align="center">Happy researching! 🚀</div>
