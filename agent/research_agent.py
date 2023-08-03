@@ -70,7 +70,6 @@ class ResearchAgent:
         Args: query (str): The query to run the search summary for
         Returns: str: The search summary for the given query
         """
-
         responses = self.search_single_query(query)
         
         print(f"Searching for {query}")
