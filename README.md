@@ -17,7 +17,7 @@ Inspired by [gpt-researcher](https://github.com/assafelovic/gpt-researcher). Thi
 <!-- make a table -->
 | Image1 | Image2 |
 | :----: | :----: |
-| <img src="./statics/example1-1.png" style="width: 80%"> | <img src="./statics/example1-2.png" style="width: 80%"> |
+| <img src="./statics/example1-1.png"> | <img src="./statics/example1-2.png"> |
 
 The currently supported agents encompass a wide range of fields, including *finance, business analysis, clinical medicine, basic medicine, travel, academic research and sociology*.
 
