@@ -34,9 +34,30 @@ css = """
     .output {
         padding: 10px;
         min-height: 200px;
-        border: #c0c0c0 1px solid;
-        border-radius: 5px;
+        border: 1.5px solid #9A73B5;
+        border-radius: 10px;
         margin-bottom: 10px;
+    }
+    
+    #history {
+        padding: 10px;
+        border: 1.5px dashed #9A73B5;
+        border-radius: 10px;
+    }
+    
+    #primary-btn {
+        border: 1.5px solid #9A73B5;
+        font-size: 20px;
+    }
+    
+    summary {
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    #history_box {
+        border-bottom: 1.5px dashed #9A73B5;
+        padding: 10px;
     }
 """
 
@@ -72,4 +93,8 @@ english_polishing_html = """
 
 history_result_html = """
     <span data-testid="block-info" class="svelte-1gfkn6j custom_label")># History Result</span>
+"""
+
+literature_review_html = """
+    <span data-testid="block-info" class="svelte-1gfkn6j custom_label")>under construction...</span>
 """

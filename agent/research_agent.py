@@ -102,7 +102,7 @@ class ResearchAgent:
         Args: None
         Returns: str: The report for the given question
         """
-        yield "Searching online..."
+        # yield "Searching online..."
 
         report_type_func = prompts.get_report_by_type(report_type)
         
