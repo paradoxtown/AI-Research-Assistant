@@ -45,7 +45,7 @@ def generate_search_queries_prompt(question):
     """
 
     return f'Write 5 google search queries to search online that form an objective opinion from the following: "{question}"\n'\
-           f'You must respond with a list of strings in the following format: ["query 1", "query 2", "query 3", "query 4", "query 5"]'
+           'You must respond with a list of strings in the following json format: {"Q1": query1, "Q2": query2, "Q3": query3, "Q4": query4, "Q5": query5}'
 
 
 def generate_resource_report_prompt(question, research_summary):

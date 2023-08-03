@@ -56,8 +56,7 @@ class ResearchAgent:
         Returns: list[str]: The search queries for the given question
         """
         result = self.call_agent(prompts.generate_search_queries_prompt(self.question))
-        print(result)
-        return json.loads(result) if type(result) != str else result.strip("[]").replace('"', '').split(",")
+        return json.loads(result)
 
     def search_single_query(self, query):
         """ Runs the async search for the given query.
@@ -74,11 +73,13 @@ class ResearchAgent:
 
         responses = self.search_single_query(query)
         
+        print(f"Searching for {query}")
         query = hash(query)
         file_path = f"./outputs/{self.directory_name}/research-{query}.txt"
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, "w") as f:
             json.dump(responses, f)
+            print(f"Saved {query} to {file_path}")
         return responses
 
     def search_online(self):
@@ -91,7 +92,7 @@ class ResearchAgent:
         
         if not self.search_summary:
             search_queries = self.create_search_queries()
-            for query in search_queries:
+            for _, query in search_queries.items():
                 search_result = self.run_search_summary(query)
                 self.search_summary += f"=Query=:\n{query}\n=Search Result=:\n{search_result}\n================\n"
 
