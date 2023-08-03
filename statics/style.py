@@ -25,10 +25,15 @@ css = """
         display: block;
     }
     
-    .research_report {
+    .main {
+        max-width: 800px;
+        align-self: center;
+    }
+    
+    .output {
         padding: 10px;
-        min-height: 100px;
-        border: #878787 2px solid;
+        min-height: 200px;
+        border: #c0c0c0 1px solid;
         border-radius: 5px;
         margin-bottom: 10px;
     }

@@ -7,7 +7,7 @@ from statics.style import *
 
 theme = gr.themes.Soft(
     primary_hue=gr.themes.Color(c100="#e0e7ff", c200="#c7d2fe", c300="#a5b4fc", c400="#818cf8", c50="#eef2ff", c500="#6366f1", c600="#5e5aaa", c700="#4338ca", c800="#3730a3", c900="#312e81", c950="#2b2c5e"),
-    font_mono=[gr.themes.GoogleFont('Fira Code'), 'ui-monospace', 'Consolas', 'monospace'],
+    font_mono=[gr.themes.GoogleFont('Fira Code'), 'ui-monospace', 'Consolas', 'monospace']
 )
 
 check_openai_api_key()
@@ -16,7 +16,7 @@ def run_agent(task, agent, report_type):
     assistant = ResearchAgent(task, agent)
     yield from assistant.write_report(report_type)
 
-with gr.Blocks(theme=theme, 
+with gr.Blocks(theme=gr.themes.Base(),
                title="AI Research Assistant",
                css=css) as demo:
     gr.HTML(top_bar)
@@ -24,7 +24,7 @@ with gr.Blocks(theme=theme,
         with gr.Column():
             gr.HTML(research_report_html)
             research_report = gr.Markdown(value="&nbsp;&nbsp;**Research report will appear here...**",
-                                          elem_classes="research_report")
+                                          elem_classes="output")
             with gr.Row():
                 agent_type = gr.Dropdown(label="# Agent Type", 
                                          value="Default Agent",
@@ -58,7 +58,7 @@ with gr.Blocks(theme=theme,
     
     with gr.Tab("English Polishing"):
         gr.HTML(english_polishing_html)
-        polished_result = gr.Markdown("&nbsp;&nbsp;**Polished result will appear here...**")
+        polished_result = gr.Markdown("&nbsp;&nbsp;**Polished result will appear here...**", elem_classes="output")
         sentences = gr.Textbox(label="# What would you like to polish?", placeholder="Enter your sentence here")
         
         with gr.Row():
