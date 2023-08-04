@@ -7,15 +7,15 @@ from statics.style import *
 
 
 check_openai_api_key()
-history = ""
-history_num = 0
-history_tasks = []
-max_histroy_num = 30
+report_history_buffer = ""
+report_history_num = 0
+report_history_tasks = []
+polish_history_buffer = ""
 
 def run_agent(task, agent, report_type):
-    global history, history_num, history_tasks
-    history_num += 1
-    history_tasks.append(task)
+    global report_history_num, report_history_tasks
+    report_history_num += 1
+    report_history_tasks.append(task)
     assistant = ResearchAgent(task, agent)
     yield from assistant.write_report(report_type)
 
@@ -26,8 +26,8 @@ with gr.Blocks(theme=gr.themes.Base(),
     gr.HTML(top_bar)
     with gr.Tab(label="🔦Report"):
         with gr.Column():
-            gr.HTML(research_report_html)
-            research_report = gr.Markdown(value="&nbsp;&nbsp;**Report will appear here...**",
+            gr.HTML(report_html)
+            report = gr.Markdown(value="&nbsp;&nbsp;Report will appear here...",
                                           elem_classes="output")
             with gr.Row():
                 agent_type = gr.Dropdown(label="# Agent Type", 
@@ -60,40 +60,42 @@ with gr.Blocks(theme=gr.themes.Base(),
                          "What are the most recent advancements in the domain of superconductors as of 2023?"], 
                          inputs=input_box)
             
-            with gr.Accordion(label="# Research History (Max 30)", elem_id="history", open=False):
-                research_history = gr.Markdown()
+            with gr.Accordion(label="# Report History", elem_id="history", open=False):
+                report_history = gr.Markdown()
             
-            def store_research(content):
-                global history_num, history_tasks, history
-                if 0 < history_num <= max_histroy_num:
-                    history += f'<details>\
-                                    <summary>Research History {history_num}: <i>{history_tasks[-1]}</i></summary>\
-                                    <div id="history_box">{content}</div>\
-                                 </details>'
-                return history
+            def store_report(content):
+                global report_history_num, report_history_tasks, report_history_buffer
+                report_history_buffer += f'<details> \
+                                               <summary>Research History {report_history_num}: \
+                                                   <i>{report_history_tasks[-1]}</i></summary> \
+                                               <div id="history_box">{content}</div> \
+                                           </details>'
+                return report_history_buffer
                     
-            submit_btn.click(run_agent, inputs=[input_box, agent_type, report_type], outputs=research_report)\
-                      .then(store_research, inputs=[research_report], outputs=research_history)
-
-    
+            submit_btn.click(run_agent, inputs=[input_box, agent_type, report_type], outputs=report)\
+                      .then(store_report, inputs=[report], outputs=report_history)
+ 
     with gr.Tab("✒️English Polishing"):
         gr.HTML(english_polishing_html)
-        polished_result = gr.Markdown("&nbsp;&nbsp;**Polished result will appear here...**", elem_classes="output")
+        polished_result = gr.Markdown("&nbsp;&nbsp;Polished result will appear here...", elem_classes="output")
         sentences = gr.Textbox(label="# What would you like to polish?", placeholder="Enter your sentence here")
         
         with gr.Row():
             polish_btn = gr.Button("Polish", elem_id="primary-btn")
-            save_btn = gr.Button("Save", elem_id="primary-btn")
         
-        polish_btn.click(english_polishing, inputs=[sentences], outputs=polished_result)
-        
-        def save_result(history, origin, result):
-            history += f"\n**Origin** : {origin}\n\n**Polished Result** : {result}"
-            return history
-        
-        gr.HTML(history_result_html)
-        history_result = gr.Markdown("&nbsp;&nbsp;**History result will appear here...**")
-        save_btn.click(save_result, inputs=[history_result, sentences, polished_result], outputs=history_result)
+        with gr.Accordion(label="# Polishing History", elem_id="history", open=False):
+            polish_history = gr.Markdown()        
+
+        def store_polished_result(origin, result):
+            global polish_history_buffer
+            polish_history_buffer += f'<details> \
+                                           <summary><i>{origin}</i></summary> \
+                                           <div id="history_box">{result}</div> \
+                                       </details>'
+            return polish_history_buffer
+
+        polish_btn.click(english_polishing, inputs=[sentences], outputs=polished_result) \
+                  .then(store_polished_result, inputs=[sentences, polished_result], outputs=polish_history)
 
     with gr.Tab("📑Literature Review"):
         gr.HTML(literature_review_html)

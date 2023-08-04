@@ -33,7 +33,7 @@ css = """
     
     .output {
         padding: 10px;
-        min-height: 200px;
+        min-height: 300px;
         border: 1.5px solid #9A73B5;
         border-radius: 10px;
         margin-bottom: 10px;
@@ -83,7 +83,7 @@ top_bar = """
     <body>
 """
 
-research_report_html = """
+report_html = """
     <span data-testid="block-info" class="svelte-1gfkn6j custom_label")># Report</span>
 """
 
