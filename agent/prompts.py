@@ -38,6 +38,7 @@ def generate_report_prompt(question, research_summary):
            " in depth, with facts and numbers if available, a minimum of 2,400 words and with markdown syntax and apa format. "\
             "Write all source urls at the end of the report in apa format."
 
+
 def generate_search_queries_prompt(question):
     """ Generates the search queries prompt for the given question.
     Args: question (str): The question to generate the search queries prompt for
@@ -80,6 +81,7 @@ def generate_outline_report_prompt(question, research_summary):
            ' The research report should be detailed, informative, in-depth, and a minimum of 1,200 words.' \
            ' Use appropriate Markdown syntax to format the outline and ensure readability.'
 
+
 def generate_concepts_prompt(question, research_summary):
     """ Generates the concepts prompt for the given question.
     Args: question (str): The question to generate the concepts prompt for
@@ -107,6 +109,7 @@ def generate_lesson_prompt(concept):
 
     return prompt
 
+
 def get_report_by_type(report_type):
     report_type_mapping = {
         'Research Report': generate_report_prompt,
@@ -115,6 +118,7 @@ def get_report_by_type(report_type):
     }
     return report_type_mapping[report_type]
 
+
 def generate_english_polishing_prompt(content):
     """ Generates the english polishing prompt for the given content.
     Inspired by project gpt_academic
@@ -122,6 +126,7 @@ def generate_english_polishing_prompt(content):
     Returns: str: The english polishing prompt for the given content
     """
     return f'Below is a paragraph from an academic paper. Polish the writing to meet the academic style and improve the spelling, grammar, clarity, concision, and overall readability.  When necessary, rewrite the whole sentence. Furthermore, list all modifications and explain the reasons for doing so in the markdown table. \n {content}'
+
 
 def generate_summarize_prompt(content):
     """ Generates the summarize prompt for the given content.
