@@ -39,12 +39,3 @@ $ export OPENAI_API_BASE = your_api_base
     ```shell
     $ python app.py
     ```
-
-## 待办事项
-
-- [x] 将Google搜索切换到DuckDuckGo
-- [ ] 文献综述
-- [x] 第三方API
-- [ ] 优化报告
-- [x] 添加医疗代理和社交代理
-- [ ] 为用户添加自定义单词数和温度的选项

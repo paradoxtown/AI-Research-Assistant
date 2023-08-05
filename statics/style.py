@@ -34,19 +34,21 @@ css = """
     .output {
         padding: 10px;
         min-height: 300px;
-        border: 1.5px solid #9A73B5;
+        border: 1.5px solid #AC7DD280;
         border-radius: 10px;
         margin-bottom: 10px;
+        transition: opacity .1s ease-in-out;
+        background: var(--block-background-fill);
     }
     
     #history {
         padding: 10px !important;
-        border: 1.5px dashed #9A73B5 !important;
+        border: 1.5px dashed #AC7DD2 !important;
         border-radius: 10px !important;
     }
     
     #primary-btn {
-        border: 1.5px solid #9A73B5;
+        border: 1.5px solid #AC7DD2;
         font-size: 20px;
     }
     
@@ -59,7 +61,23 @@ css = """
         border-bottom: 1.5px dashed #9A73B5;
         padding: 10px;
     }
+    
+    .tab-nav {
+        border-bottom: 1.5px solid #9A73B5 !important;
+    }
+    
+    .selected {
+        border: 1.5px solid #9A73B5 !important;
+        border-bottom: none !important;
+    }
+    
+    .tabitem {
+        border: 1.5px solid #9A73B5 !important;
+        border-top: none !important;
+    }
 """
+
+# #809A73B5
 
 top_bar = """
     <head>

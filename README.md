@@ -15,9 +15,9 @@ sdk_version: 3.38.0
 Inspired by [gpt-researcher](https://github.com/assafelovic/gpt-researcher). This project endeavors to develop an AI research assistant capable of **generating research reports** effortlessly for researchers. For instance, researchers can request the AI research assistant to compose a report on *the latest advancements in the field of superconductors as of 2023*, which is currently a trending topic. The AI research assistant will subsequently compile a report based on the relevant information obtained from the internet. Now, AIRA also offers support for **academic English polishing**.
 
 <!-- make a table -->
-|                Example1-1                |                Example1-2               |                Example1-3               |            
-| :--------------------------------------: | :-------------------------------------: | :-------------------------------------: |
-|   <img src="./statics/example1-1.png">   |   <img src="./statics/example1-2.png">  | <img src="./statics/example1-3.png">  |
+|              Example1-1              |              Example1-2              |              Example1-3              |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| <img src="./statics/example1-1.png"> | <img src="./statics/example1-2.png"> | <img src="./statics/example1-3.png"> |
 
 The currently supported agents encompass a wide range of fields, including *finance, business analysis, clinical medicine, basic medicine, travel, academic research and sociology*.
 
@@ -70,6 +70,7 @@ or you can set the api key and base in `.env` file.
 - [ ] Add option for users to customize the number of words and temperature
 - [ ] Copy and download buttons
 - [ ] Allows the user to choose the degree of research.
+- [ ] Wikipedia Understanding
 
 ---
 
