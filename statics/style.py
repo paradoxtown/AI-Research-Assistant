@@ -2,7 +2,6 @@ css = """
     .top-bar {
         padding-bottom: 10px;
         background-color: transparent;
-        border-bottom: #E9E4ED 1px solid;
     }
     
     .top-bar .in-bar-title {
@@ -66,7 +65,7 @@ css = """
         border-bottom: 1.5px solid #9A73B5 !important;
     }
     
-    .selected {
+    button.selected {
         border: 1.5px solid #9A73B5 !important;
         border-bottom: none !important;
     }
