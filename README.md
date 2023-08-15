@@ -12,6 +12,8 @@ sdk_version: 3.38.0
     </div>
 </div>
 
+> Update: Fix HttpError. (Sorry for the late update. I'm currently working on my dissertation...)
+
 Inspired by [gpt-researcher](https://github.com/assafelovic/gpt-researcher). This project endeavors to develop an AI research assistant capable of **generating research reports** effortlessly for researchers. For instance, researchers can request the AI research assistant to compose a report on *the latest advancements in the field of superconductors as of 2023*, which is currently a trending topic. The AI research assistant will subsequently compile a report based on the relevant information obtained from the internet. Now, AIRA also offers support for **academic English polishing**.
 
 <!-- make a table -->
