@@ -1,4 +1,7 @@
+import os
 import gradio as gr
+
+from datetime import datetime, timezone
 
 from config import check_openai_api_key
 from agent.research_agent import ResearchAgent
@@ -8,13 +11,24 @@ from statics.style import *
 
 check_openai_api_key()
 report_history_buffer = ""
-report_history_num = 0
 report_history_tasks = []
 polish_history_buffer = ""
 
+REPORT_HISTORY_FILE_PATH = "./statics/report_history_buffer.md"
+
+
+def load_report_history():
+    global report_history_buffer
+    if os.path.exists(REPORT_HISTORY_FILE_PATH):
+        with open(REPORT_HISTORY_FILE_PATH, "r") as f:
+            report_history_buffer = f.read()
+    else:
+        open(REPORT_HISTORY_FILE_PATH, "w").close()
+    return report_history_buffer
+
+
 def run_agent(task, agent, report_type):
-    global report_history_num, report_history_tasks
-    report_history_num += 1
+    global report_history_tasks
     report_history_tasks.append(task)
     assistant = ResearchAgent(task, agent)
     yield from assistant.write_report(report_type)
@@ -61,20 +75,25 @@ with gr.Blocks(theme=gr.themes.Base(),
                          inputs=input_box)
             
             with gr.Accordion(label="# Report History", elem_id="history", open=False):
-                report_history = gr.Markdown()
-            
+                report_history = gr.Markdown(value=load_report_history)
+
             def store_report(content):
-                global report_history_num, report_history_tasks, report_history_buffer
-                report_history_buffer += f'<details> \
-                                               <summary>Research History {report_history_num}: \
-                                                   <i>{report_history_tasks[-1]}</i></summary> \
-                                               <div id="history_box">{content}</div> \
-                                           </details>'
+                global report_history_tasks, report_history_buffer
+                report_task = report_history_tasks[-1][:min(100, len(report_history_tasks[-1]))]
+                time_stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %P")
+                new_report = f'<details> \
+                                   <summary>UTC {time_stamp}: \
+                                       <i>{report_task}</i></summary> \
+                                   <div id="history_box">{content}</div> \
+                               </details>'
+                report_history_buffer += new_report
+                with open("./statics/report_history_buffer.md", "a+") as f:
+                    f.write(new_report)
                 return report_history_buffer
-                    
+
             submit_btn.click(run_agent, inputs=[input_box, agent_type, report_type], outputs=report)\
                       .then(store_report, inputs=[report], outputs=report_history)
- 
+
     with gr.Tab("✒️English Polishing"):
         gr.HTML(english_polishing_html)
         polished_result = gr.Markdown("&nbsp;&nbsp;Polished result will appear here...", elem_classes="output")
@@ -84,7 +103,7 @@ with gr.Blocks(theme=gr.themes.Base(),
             polish_btn = gr.Button("Polish", elem_id="primary-btn")
         
         with gr.Accordion(label="# Polishing History", elem_id="history", open=False):
-            polish_history = gr.Markdown()        
+            polish_history = gr.Markdown()
 
         def store_polished_result(origin, result):
             global polish_history_buffer
