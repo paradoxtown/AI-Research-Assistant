@@ -12,7 +12,7 @@ sdk_version: 3.38.0
     </div>
 </div>
 
-> **15th Aug, 2023 Fix: HttpError. (Sorry for the late update. I'm currently working on my dissertation...)**
+> **15th Aug, 2023 Fix: HttpError. (Sorry for the late update. I'm currently working on my dissertation...)** <br>
 > **21th Aug, 2023 Fix: Report History is only displayed after clicking and will be rest after refreshing.**
 
 
