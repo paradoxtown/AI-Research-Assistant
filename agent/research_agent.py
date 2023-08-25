@@ -11,23 +11,23 @@ CFG = Config()
 
 
 class ResearchAgent:
-    def __init__(self, question, agent):
+    def __init__(self, question, agent, system_prompt):
         """ Initializes the research assistant with the given question.
             Args: question (str): The question to research
             Returns: None
         """
-
         self.question = question
         self.agent = agent
         self.visited_urls = set()
         self.search_summary = ""
         self.directory_name = ''.join(c for c in question if c.isascii() and c not in string.punctuation)[:100]
         self.dir_path = os.path.dirname(f"./outputs/{self.directory_name}/")
+        self.system_prompt = system_prompt
 
     def call_agent(self, action):
         messages = [{
             "role": "system",
-            "content": prompts.generate_agent_role_prompt(self.agent),
+            "content": self.system_prompt,
         }, {
             "role": "user",
             "content": action,
@@ -40,7 +40,7 @@ class ResearchAgent:
     def call_agent_stream(self, action):
         messages = [{
             "role": "system",
-            "content": prompts.generate_agent_role_prompt(self.agent),
+            "content": self.system_prompt,
         }, {
             "role": "user",
             "content": action,
