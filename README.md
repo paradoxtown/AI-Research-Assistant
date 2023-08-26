@@ -12,8 +12,9 @@ sdk_version: 3.38.0
     </div>
 </div>
 
-> **15th Aug, 2023 Fix: HttpError. (Sorry for the late update. I'm currently working on my dissertation...)** <br>
+> **25th Aug, 2023 Feature: [Adding TextArea for custom prompts](https://github.com/paradoxtown/AI-Research-Assistant/pull/1)**
 > **21th Aug, 2023 Fix: Report history is only displayed after clicking and will be reset after refreshing.**
+> **15th Aug, 2023 Fix: HttpError. (Sorry for the late update. I'm currently working on my dissertation...)** <br>
 
 
 Inspired by [gpt-researcher](https://github.com/assafelovic/gpt-researcher). This project endeavors to develop an AI research assistant capable of **generating research reports** effortlessly for researchers. For instance, researchers can request the AI research assistant to compose a report on *the latest advancements in the field of superconductors as of 2023*, which is currently a trending topic. The AI research assistant will subsequently compile a report based on the relevant information obtained from the internet. Now, AIRA also offers support for **academic English polishing**.

@@ -93,17 +93,19 @@ class ResearchAgent:
             search_queries = self.create_search_queries()
             for _, query in search_queries.items():
                 search_result = self.run_search_summary(query)
-                self.search_summary += f"=Query=:\n{query}\n=Search Result=:\n{search_result}\n================\n"
+                self.search_summary += \
+                    f"=Query=:\n{query}\n=Search Result=:\n{search_result}\n================\n"
 
         return self.search_summary
 
-    def write_report(self, report_type):
+    def write_report(self, report_type, extra_prompt):
         """ Writes the report for the given question.
         Args: None
         Returns: str: The report for the given question
         """
-        # yield "Searching online..."
 
         report_type_func = prompts.get_report_by_type(report_type)
         
-        yield from self.call_agent_stream(report_type_func(self.question, self.search_online()))
+        yield from self.call_agent_stream(report_type_func(self.question, 
+                                                           self.search_online(),
+                                                           extra_prompt))

@@ -69,6 +69,7 @@ def generate_resource_report_prompt(question, research_summary, extra_prompt):
            ' The report should have a minimum length of 1,200 words.'\
             f'{extra_prompt}'
 
+
 def generate_outline_report_prompt(question, research_summary, extra_prompt):
     """ Generates the outline report prompt for the given question and research summary.
     Args: question (str): The question to generate the outline report prompt for
@@ -95,6 +96,7 @@ def generate_concepts_prompt(question, research_summary, extra_prompt):
            f' on the following question or topic: "{question}". The outline should provide a well-structured framework'\
            'You must respond with a list of strings in the following format: ["concepts 1", "concepts 2", "concepts 3", "concepts 4, concepts 5"]'\
             f'{extra_prompt}'
+
 
 def generate_lesson_prompt(concept):
     """

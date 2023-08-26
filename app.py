@@ -31,10 +31,7 @@ def run_agent(task, agent_type, report_type, system_prompt, extra_prompt):
     global report_history_tasks
     report_history_tasks.append(task)
     assistant = ResearchAgent(task, agent_type, system_prompt)
-    report_type_func = prompts.get_report_by_type(report_type)
-    yield from assistant.call_agent_stream(report_type_func(assistant.question,
-                                                            assistant.search_online(),
-                                                            extra_prompt=extra_prompt))
+    yield from assistant.write_report(report_type, extra_prompt)
 
 
 with gr.Blocks(theme=gr.themes.Base(),
@@ -70,17 +67,26 @@ with gr.Blocks(theme=gr.themes.Base(),
 
             input_box = gr.Textbox(label="# What would you like to research next?", placeholder="Enter your question here")
             
-            with gr.Accordion("Additional settings", open=False):
-                system_prompt = gr.TextArea(prompts.generate_agent_role_prompt(agent_type.value), label="Agent prompt", interactive=True, show_copy_button=True)
-                report_type_prompt = gr.TextArea(prompts.generate_report_prompt(f'{input_box.value}', report_type.value), label="Report type prompt (no editable)", interactive=False, show_copy_button=True)
-                extra_prompt = gr.TextArea(label="Extra prompt", interactive=True, show_copy_button=True)
+            with gr.Accordion("# Advanced Settings", open=False):
+                system_prompt = gr.TextArea(label="Agent Prompt", 
+                                            value=prompts.generate_agent_role_prompt(agent_type.value),
+                                            interactive=True, 
+                                            show_copy_button=True)
+                report_type_prompt = gr.TextArea(label="Report Prompt (not editable)", 
+                                                 value=prompts.generate_report_prompt(f'{input_box.value}', report_type.value), 
+                                                 interactive=False, 
+                                                 show_copy_button=True)
+                extra_prompt = gr.TextArea(label="Extra Prompt", interactive=True, show_copy_button=True)
 
                 def on_select_agent(evt: gr.SelectData):
                     return f"{prompts.generate_agent_role_prompt(evt.value)}"
+
                 def on_select_input_box(input, report_type):
                     return f"{prompts.generate_report_prompt(f'{input}', report_type)}"
+
                 def on_select_report_type(evt: gr.SelectData, input_box):
                     return f"{prompts.generate_report_prompt(f'{input_box}', evt.value)}"
+
                 
                 agent_type.select(on_select_agent, None, system_prompt)
                 input_box.input(on_select_input_box, inputs=[input_box, report_type], outputs=report_type_prompt)
