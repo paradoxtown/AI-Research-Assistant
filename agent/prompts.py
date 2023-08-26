@@ -25,7 +25,7 @@ def generate_agent_role_prompt(agent):
     return prompts.get(agent, "No such agent")
 
 
-def generate_report_prompt(question, research_summary):
+def generate_report_prompt(question, research_summary, extra_prompt=""):
     """ Generates the report prompt for the given question and research summary.
     Args: question (str): The question to generate the report prompt for
           research_summary (str): The research summary to generate the report prompt for
@@ -36,7 +36,8 @@ def generate_report_prompt(question, research_summary):
            f' question or topic: "{question}" in a detailed report --'\
            " The report should focus on the answer to the question, should be well structured, informative, detailed" \
            " in depth, with facts and numbers if available, a minimum of 2,400 words and with markdown syntax and apa format. "\
-            "Write all source urls at the end of the report in apa format."
+            "Write all source urls at the end of the report in apa format."\
+            f'{extra_prompt}'
 
 
 def generate_search_queries_prompt(question):
@@ -49,7 +50,7 @@ def generate_search_queries_prompt(question):
            'You must respond with a list of strings in the following json format: {"Q1": query1, "Q2": query2, "Q3": query3, "Q4": query4, "Q5": query5}'
 
 
-def generate_resource_report_prompt(question, research_summary):
+def generate_resource_report_prompt(question, research_summary, extra_prompt):
     """Generates the resource report prompt for the given question and research summary.
 
     Args:
@@ -65,10 +66,10 @@ def generate_resource_report_prompt(question, research_summary):
            ' Focus on the relevance, reliability, and significance of each source.' \
            ' Ensure that the report is well-structured, informative, in-depth, and follows Markdown syntax.' \
            ' Include relevant facts, figures, and numbers whenever available.' \
-           ' The report should have a minimum length of 1,200 words.'
+           ' The report should have a minimum length of 1,200 words.'\
+            f'{extra_prompt}'
 
-
-def generate_outline_report_prompt(question, research_summary):
+def generate_outline_report_prompt(question, research_summary, extra_prompt):
     """ Generates the outline report prompt for the given question and research summary.
     Args: question (str): The question to generate the outline report prompt for
             research_summary (str): The research summary to generate the outline report prompt for
@@ -79,10 +80,11 @@ def generate_outline_report_prompt(question, research_summary):
            f' for the following question or topic: "{question}". The outline should provide a well-structured framework'\
            ' for the research report, including the main sections, subsections, and key points to be covered.' \
            ' The research report should be detailed, informative, in-depth, and a minimum of 1,200 words.' \
-           ' Use appropriate Markdown syntax to format the outline and ensure readability.'
+           ' Use appropriate Markdown syntax to format the outline and ensure readability.'\
+            f'{extra_prompt}'
 
 
-def generate_concepts_prompt(question, research_summary):
+def generate_concepts_prompt(question, research_summary, extra_prompt):
     """ Generates the concepts prompt for the given question.
     Args: question (str): The question to generate the concepts prompt for
             research_summary (str): The research summary to generate the concepts prompt for
@@ -91,8 +93,8 @@ def generate_concepts_prompt(question, research_summary):
 
     return f'"""{research_summary}""" Using the above information, generate a list of 5 main concepts to learn for a research report'\
            f' on the following question or topic: "{question}". The outline should provide a well-structured framework'\
-           'You must respond with a list of strings in the following format: ["concepts 1", "concepts 2", "concepts 3", "concepts 4, concepts 5"]'
-
+           'You must respond with a list of strings in the following format: ["concepts 1", "concepts 2", "concepts 3", "concepts 4, concepts 5"]'\
+            f'{extra_prompt}'
 
 def generate_lesson_prompt(concept):
     """
