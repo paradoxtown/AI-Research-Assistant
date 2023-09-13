@@ -12,8 +12,8 @@ sdk_version: 3.38.0
     </div>
 </div>
 
-> **25th Aug, 2023 Feature: [Adding TextArea for custom prompts](https://github.com/paradoxtown/AI-Research-Assistant/pull/1)**
-> **21th Aug, 2023 Fix: Report history is only displayed after clicking and will be reset after refreshing.**
+> **25th Aug, 2023 Feature: [Adding TextArea for custom prompts](https://github.com/paradoxtown/AI-Research-Assistant/pull/1)** <br>
+> **21th Aug, 2023 Fix: Report history is only displayed after clicking and will be reset after refreshing.** <br>
 > **15th Aug, 2023 Fix: HttpError. (Sorry for the late update. I'm currently working on my dissertation...)** <br>
 
 
